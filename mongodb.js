@@ -7,30 +7,31 @@ const databaseName = 'task-manager';
 MongoClient.connect(connectionURL, {useUnifiedTopology: true}, (error, client) => {
     if(error){
         return console.log("Unable to connect to db!!");
-    }    
-    //console.log("Connected Correctly!!");
-    
+    }        
     const db = client.db(databaseName)
     
-    // db.collection('users').findOne({ name: 'kin'}, (error, user) => {
-    //     if(error){
-    //         return console.log('Unable to read');
-    //     }
-    //     console.log(user);
-    // })
-    
-    // db.collection('users').find({age:23}).toArray((error,users) => {
-    //     console.log(users)
-    // });
-    db.collection('tasks').find({complete: false}).count((error,count) => {
-        console.log(count)
-    })
-    
-    db.collection('tasks').findOne({_id: new ObjectID("5e426a7953c3fe54d7f7d305")}, (error, task) => {
-        if(error){
-            return console.log('Unable to read');
+//   db.collection('users').updateOne({
+//         _id: new ObjectID("5e4265883a52b65133e5ee76")
+//     },{
+//         $inc: {
+//             age: 5
+//         }
+//     }).then((result) => {
+//         console.log(result)
+//     }).catch((error) => {
+//         console.log(error)
+//     })
+
+    db.collection('tasks').updateMany({
+        complete: false
+    },{
+        $set: {
+            complete: true
         }
-        console.log(task);
+    }).then((result) => {
+        console.log(result)
+    }).catch((error) => {
+        console.log(error)
     })
     
 })
