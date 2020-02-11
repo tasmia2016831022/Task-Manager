@@ -22,16 +22,34 @@ MongoClient.connect(connectionURL, {useUnifiedTopology: true}, (error, client) =
 //         console.log(error)
 //     })
 
-    db.collection('tasks').updateMany({
-        complete: false
-    },{
-        $set: {
-            complete: true
-        }
+    // db.collection('tasks').updateMany({
+    //     complete: false
+    // },{
+    //     $set: {
+    //         complete: true
+    //     }
+    // }).then((result) => {
+    //     console.log(result)
+    // }).catch((error) => {
+    //     console.log(error)
+    // })
+    
+    // db.collection('users').deleteMany({
+    //     age: 23
+    // }).then((result) => {
+    //     console.log(result);
+    // }).catch((error) => {
+    //     console.log(error);
+    // })
+    
+    db.collection('tasks').deleteOne({
+        description: 'Get a pen'
     }).then((result) => {
-        console.log(result)
-    }).catch((error) => {
-        console.log(error)
+        console.log(result.deletedCount);
+    }).catch(error => {
+        console.log(error);
     })
+    
+    
     
 })
