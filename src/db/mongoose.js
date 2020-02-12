@@ -28,10 +28,8 @@ const User = mongoose.model('User', {
       type: String,
       required: true,
       trim: true,
+      minlength: 7,
       validate(value){
-          if(value.length <= 6){
-              throw new Error(' Password length must be greater than SIX');
-          }
           if(validator.equals(value,'password') || validator.equals(value, 'Password')){
               throw new Error(' password not valid ');
           }
@@ -48,35 +46,37 @@ const User = mongoose.model('User', {
     }
 });
 
-const me = new User({
-    name: ' Lamia u',
-    password: '20384ujnngggnnn8   ',
-    email: 'lamia@GMAIL.com',
-    age: 45
-})
+// const me = new User({
+//     name: ' Lamia u',
+//     password: '20384ujnngggnnn8   ',
+//     email: 'lamia@GMAIL.com',
+//     age: 45
+// })
 
-me.save().then(() =>{
-    console.log(me);
-}).catch((error) => {
-    console.log("Error: ",error);
-})
+// me.save().then(() =>{
+//     console.log(me);
+// }).catch((error) => {
+//     console.log("Error: ",error);
+// })
 
 const Tasks = mongoose.model('Tasks', {
     description: {
         type: String,
+        required: true,
+        trim: true
     },
     completed: {
-        type: Boolean
+        type: Boolean,
+        default: false
     }
 });
 
-// const task = new Tasks({
-//     description: 'Making Breakfast',
-//     completed: true
-// });
+const task = new Tasks({
+    description: '    Make  '
+});
 
-// task.save().then(() => {
-//     console.log(task);
-// }).catch((error) => {
-//     console.log('Error: ', error);
-// });
+task.save().then(() => {
+    console.log(task);
+}).catch((error) => {
+    console.log('Error: ', error);
+});
