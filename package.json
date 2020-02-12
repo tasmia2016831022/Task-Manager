@@ -17,8 +17,12 @@
   },
   "homepage": "https://github.com/tasmia2016831022/Task-Manager#readme",
   "dependencies": {
+    "express": "^4.17.1",
     "mongodb": "^3.5.2",
     "mongoose": "^5.8.11",
     "validator": "^12.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
   }
 }
