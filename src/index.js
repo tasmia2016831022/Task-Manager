@@ -29,7 +29,7 @@ app.post('/tasks',(req,res) => {
 })
 
 app.get('/users',(req,res) => {
-    User.find().then((users) => {
+    User.find({}).then((users) => {
         res.send(users);
     }).catch((error) => {
         res.status(500).send(error);
@@ -50,7 +50,7 @@ app.get('/users/:id',(req,res) => {
 })
 
 app.get('/tasks',(req,res) =>{
-    Task.find().then((tasks) => {
+    Task.find({}).then((tasks) => {
         res.send(tasks);
     }).catch((error) => {
         res.status(400).send(error);
