@@ -24,6 +24,19 @@ const User = mongoose.model('User', {
             }
         }
     },
+    password: {
+      type: String,
+      required: true,
+      trim: true,
+      validate(value){
+          if(value.length <= 6){
+              throw new Error(' Password length must be greater than SIX');
+          }
+          if(validator.equals(value,'password') || validator.equals(value, 'Password')){
+              throw new Error(' password not valid ');
+          }
+      }  
+    },
     age: {
         type: Number,
         default: 0,
@@ -37,6 +50,7 @@ const User = mongoose.model('User', {
 
 const me = new User({
     name: ' Lamia u',
+    password: '20384ujnngggnnn8   ',
     email: 'lamia@GMAIL.com',
     age: 45
 })
