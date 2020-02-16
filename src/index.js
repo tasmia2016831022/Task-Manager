@@ -7,12 +7,16 @@ const TaskRouter = require("./router/taskRouter");
 const app = express();
 const port = process.env.PORT || 3001;
 
-app.use((req, res, next) => {
-  if(req.method === 'GET'){
-    res.send('GET is disabled');
-  }else{
-    next();
-  }
+// app.use((req, res, next) => {
+//   if(req.method === 'GET'){
+//     res.send('GET is disabled');
+//   }else{
+//     next();
+//   }
+// })
+
+app.use((req,res,next) => {
+  res.status(503).send('site under maintainance');
 })
 
 app.use(express.json());
