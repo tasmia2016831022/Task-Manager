@@ -63,7 +63,7 @@ router.post("/users", async (req, res) => {
   
   ///UPDATE-PATCH///
   
-  router.patch("/users/:id", async (req, res) => {
+  router.patch("/users/me", auth, async (req, res) => {
     const updates = Object.keys(req.body);
     const allowedUpdates = ["name", "email", "password", "age"];
     const isValidOperation = updates.every(update =>
@@ -75,7 +75,7 @@ router.post("/users", async (req, res) => {
     }
   
     try {
-      const user = await User.findByIdAndUpdate(req.params.id);
+      const user = await User.findByIdAndUpdate(req.user._id);
       
       updates.forEach((update) => user[update] = req.body[update]);
       
