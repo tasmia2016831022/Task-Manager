@@ -80,10 +80,6 @@ router.post("/users", async (req, res) => {
       updates.forEach((update) => user[update] = req.body[update]);
       
       await user.save();
-  
-      if (!user) {
-        return res.status(404).send();
-      }
       res.send(user);
     } catch (error) {
       res.status(400).send(error);

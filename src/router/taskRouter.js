@@ -4,7 +4,7 @@ const Task = require('../models/task');
 
 //===========TASK API =================///
 
-///CREATE-GET///
+///CREATE-POST///
 
 router.post("/tasks", async (req, res) => {
     const task = new Task(req.body);
@@ -17,7 +17,7 @@ router.post("/tasks", async (req, res) => {
     }
   });
   
-  ///READ-POST///
+  ///READ-GET///
   
   router.get("/tasks", async (req, res) => {
     try {
