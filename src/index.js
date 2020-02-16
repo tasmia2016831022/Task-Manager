@@ -15,9 +15,9 @@ const port = process.env.PORT || 3001;
 //   }
 // })
 
-app.use((req,res,next) => {
-  res.status(503).send('site under maintainance');
-})
+// app.use((req,res,next) => {
+//   res.status(503).send('site under maintainance');
+// })
 
 app.use(express.json());
 app.use(UserRouter);
@@ -29,13 +29,13 @@ app.listen(port, () => {
 
 const jwt = require('jsonwebtoken');
 
-const jwtFunc = async () => {
-    const token = jwt.sign({ _id:'abc123' }, 'thisisnode', { expiresIn: '0 seconds'});
-    console.log(token);
+// const jwtFunc = async () => {
+//     const token = jwt.sign({ _id:'abc123' }, 'thisisnode', { expiresIn: '100 seconds'});
+//     console.log(token);
     
-    const data = jwt.verify(token, 'thisisnode');
-    console.log(data);
-}
+//     const data = jwt.verify(token, 'thisisnode');
+//     console.log(data);
+// }
 
-jwtFunc();
+// jwtFunc();
 
