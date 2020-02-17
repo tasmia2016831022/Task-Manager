@@ -106,8 +106,8 @@ router.post("/users", async (req, res) => {
       fileSize: 1000000
     },
     fileFilter(req, file, callback){
-      if(!file.originalname.match(/\.(doc|docx)$/)){
-        return callback(new Error('Please upload a word file'));
+      if(!file.originalname.match(/\.(jpg|jpeg|png)$/)){
+        return callback(new Error('Please upload an image file includes jpg/jpeg/png ext'));
       }
       callback(undefined,true);
     }
