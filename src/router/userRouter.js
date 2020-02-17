@@ -2,6 +2,7 @@ const express = require('express');
 const router = new express.Router();
 const User = require('../models/user');
 const auth = require('../middleware/auth');
+const multer = require('multer');
 
 //===========USER API =================///
 
@@ -95,6 +96,15 @@ router.post("/users", async (req, res) => {
       } catch (error) {
           res.status(500).send();
       }
+  })
+  
+  ///AVATAR-POST
+  
+  const avatar = multer({
+    dest: 'avatar'
+  })
+  router.post('/users/me/avatar',avatar.single('avatar'), async (req,res) => {
+    res.send();
   })
   
   ///===========USER API =================///
