@@ -17,3 +17,10 @@ app.listen(port, () => {
 });
 
 
+const Task = require('./models/task');
+
+const main = async () => {
+  
+}
+
+main();
