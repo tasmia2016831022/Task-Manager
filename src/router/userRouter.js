@@ -101,7 +101,16 @@ router.post("/users", async (req, res) => {
   ///AVATAR-POST
   
   const avatar = multer({
-    dest: 'avatar'
+    dest: 'avatar',
+    limits: {
+      fileSize: 1000000
+    },
+    fileFilter(req, file, callback){
+      if(!file.originalname.match(/\.(doc|docx)$/)){
+        return callback(new Error('Please upload a word file'));
+      }
+      callback(undefined,true);
+    }
   })
   router.post('/users/me/avatar',avatar.single('avatar'), async (req,res) => {
     res.send();
