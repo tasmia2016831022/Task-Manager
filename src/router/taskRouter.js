@@ -23,18 +23,18 @@ router.post("/tasks",auth, async (req, res) => {
     }
   });
   
-  ///READ-GET///
+  ///READ ALL TASKS OF AUTH USER-GET///
   
-  router.get("/tasks", async (req, res) => {
+  router.get("/tasks", auth, async (req, res) => {
     try {
-      const tasks = await Task.find({});
+      const tasks = await Task.find({owner: req.user._id});
       res.send(tasks);
     } catch (error) {
       res.status(400).send(error);
     }
   });
   
-  ///READ-GET///
+  ///READ SPECIFIC TASK-GET///
   ///ONLY AUTH USER OF HIS OWN///
   
   router.get("/tasks/:id",auth, async (req, res) => {
