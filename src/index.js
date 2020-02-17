@@ -7,6 +7,13 @@ const TaskRouter = require("./router/taskRouter");
 const app = express();
 const port = process.env.PORT || 3001;
 
+const multer = require('multer');
+const upload = multer({
+  dest: 'images'
+})
+app.post('/upload', upload.single('upload'),(req,res) => {
+  res.send();
+})
 
 app.use(express.json());
 app.use(UserRouter);
@@ -16,11 +23,3 @@ app.listen(port, () => {
   console.log(`Server started at port ${port}`);
 });
 
-
-const Task = require('./models/task');
-
-const main = async () => {
-  
-}
-
-main();
