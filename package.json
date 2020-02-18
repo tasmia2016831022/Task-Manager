@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/tasmia2016831022/Task-Manager#readme",
   "dependencies": {
+    "@sendgrid/mail": "^6.5.2",
     "bcryptjs": "^2.4.3",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
