@@ -4,7 +4,7 @@ const User = require("../models/user");
 const auth = require("../middleware/auth");
 const multer = require("multer");
 const sharp = require("sharp");
-const { sendWelcomeMail } = require('../emails/account');
+const { sendWelcomeMail ,sendGoodByeMail} = require('../mails/account');
 
 //===========USER API =================///
 
@@ -93,10 +93,11 @@ router.patch("/users/me", auth, async (req, res) => {
   }
 });
 
-///DELETE-DELETE
+///DELETE USER-DELETE
 
 router.delete("/users/me", auth, async (req, res) => {
   try {
+    sendGoodByeMail(req.user.email, req.user.name);
     await req.user.remove();
     res.send(req.user);
   } catch (error) {

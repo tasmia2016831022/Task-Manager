@@ -1,2 +1,4 @@
 node_modules
-sendgrid.env
+mailKey.env
+dev.env
+mails
