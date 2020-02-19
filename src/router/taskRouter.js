@@ -5,7 +5,7 @@ const auth = require("../middleware/auth");
 
 //===========TASK API =================///
 
-///CREATE-POST///
+///CREATE TASK-POST///
 
 router.post("/tasks", auth, async (req, res) => {
   const task = new Task({

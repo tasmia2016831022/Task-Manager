@@ -8,7 +8,7 @@ const { SendWelcome , SendBye}= require('../mails/account');
 
 //===========USER API =================///
 
-///CREATE-POST///
+///CREATE USER-POST///
 
 router.post("/users", async (req, res) => {
   const user = new User(req.body);
@@ -23,7 +23,7 @@ router.post("/users", async (req, res) => {
   }
 });
 
-///LOGIN-POST///
+///LOGIN USER-POST///
 
 router.post("/users/login", async (req, res) => {
   try {
@@ -38,7 +38,7 @@ router.post("/users/login", async (req, res) => {
   }
 });
 
-///LOGOUT-POST///
+///LOGOUT USER-POST///
 
 router.post("/users/logout", auth, async (req, res) => {
   try {
@@ -63,7 +63,7 @@ router.post("/users/logoutall", auth, async (req, res) => {
   }
 });
 
-///READ-GET///
+///READ USER-GET///
 
 router.get("/users/me", auth, async (req, res) => {
   res.send(req.user);
@@ -106,7 +106,7 @@ router.delete("/users/me", auth, async (req, res) => {
   }
 });
 
-///AVATAR-POST
+///UPLOAD AVATAR-POST
 
 const upload = multer({
   // dest: 'avatar',
@@ -137,7 +137,7 @@ router.post(
   }
 );
 
-///AVATAR-DELETE
+///DELETE AVATAR-DELETE
 
 router.delete(
   "/users/me/avatar",
@@ -152,7 +152,7 @@ router.delete(
   }
 );
 
-///AVATAR-GET
+///AVATAR-GET(Browser)
 
 router.get("/users/:id/avatar", async (req, res) => {
   try {
