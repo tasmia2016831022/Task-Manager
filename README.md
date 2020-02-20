@@ -24,4 +24,4 @@ An application built with NodeJS and MongoDB (NodeJS Learning)
 
 ## DISCLAIMER
 
-   Some API key may be exposed in this public ripo. Note that, these keys are generated on free account / trial. And may not be useable sometimes.
+   Some API key may be exposed in this public ripo. Note that, these keys are generated on free account / trial. And may not be useable sometimes. (SENDGRID API KEY WILL NOT WORK AS THE ACCOUNT IS SUSPENDED)
