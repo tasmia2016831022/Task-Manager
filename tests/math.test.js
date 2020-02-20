@@ -8,7 +8,9 @@ test('Should convert 0 C to 32 F', () => {
     expect(sum.celsiusToFahrenheit(0)).toBe(32);
 })
 
-
-
-// 2. Create "Should convert 32 F to 0 C"
-// 3. Create "Should convert 0 C to 32 F"
+test('Async', (done) => {
+    setTimeout(() => {
+        expect(1).toBe(9);
+        done();
+    },2000)
+})
