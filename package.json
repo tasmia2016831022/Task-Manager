@@ -9,6 +9,9 @@
     "test:watch": "jest --watch",
     "test": "jest"
   },
+  "jest":{
+    "testEnvironment": "node"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tasmia2016831022/Task-Manager.git"

@@ -29,9 +29,9 @@ const SendWelcome = async (email, name) => {
   });
 
   try {
-    console.log(request.body);
+    //console.log(request.body);
   } catch (error) {
-    console.log({ error: error.messages, code: error.statusCode });
+    //console.log({ error: error.messages, code: error.statusCode });
   }
 };
 
