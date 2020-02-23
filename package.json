@@ -7,7 +7,7 @@
     "start": "node src/index.js",
     "dev": "nodemon src/index.js",
     "test:watch": "jest --watch",
-    "test": "jest"
+    "test": "jest --setupFiles"
   },
   "jest":{
     "testEnvironment": "node"
